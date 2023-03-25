@@ -94,6 +94,18 @@ public class BinarySearchTree<K, V> {
 	public List<String> search(String key) {
 		return (List<String>) internalSearch(root, key);
 	}
+
+	// Retornar los valores de la lista de Search
+	public String despliegueDeBusqueda(List<String> lista){
+		StringBuilder sb = new StringBuilder();
+        // Iterar a través de la lista y agregar cada elemento al StringBuilder
+        for (String elemento : lista) {
+            sb.append(elemento);
+            sb.append(", ");
+        }
+        // Retornar el resultado como un String
+        return sb.toString();
+	}
 	
 	/**
 

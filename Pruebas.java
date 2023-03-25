@@ -16,8 +16,7 @@ import java.lang.Exception;
 public class Pruebas {
 
     @Test
-	public void calculandoConExito() {
-
+	public void PruebaDeInsertion() {
         BinarySearchTree<String, String> arbol = new BinarySearchTree<String, String>();
         arbol.insert("hola", null);
         arbol.insert("mundo", null);
