@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in); 
         String fileName = "diccionario.txt"; // nombre del archivo
 
@@ -18,7 +19,7 @@ public class Main {
         // Búsqueda In-Order
         InOrder<String, List<String>> visitor = new InOrder<>();
 
-        String menu = "Bienvenido a su diccionario\nQue desea realizar: \n1. Buscar traduccion de palabras. \n2. Recorrer diccionario (in-Order).\n3. Traducir palabras. \n4. Salir ";
+        String menu = "Bienvenido a su diccionario\nQue desea realizar: \n1. Buscar traduccion de palabras. \n2. Recorrer diccionario (in-Order).\n3. Traducir líneas de texto. \n4. Salir ";
         System.out.println(menu);
         int opcion = in.nextInt(); 
         in.nextLine();
@@ -36,7 +37,7 @@ public class Main {
                     break;
                 }
 
-                case 2:{
+                case 2:{ // Se solicita un diccionario y se recorre en orden 
                     System.out.println("Que diccionario desea recorrer: 1. Ingles 2. Espaniol 3. Frances (ingrese el número)");
                     int tipodic = in.nextInt();
                     in.nextLine();
@@ -46,7 +47,19 @@ public class Main {
                     break;
                 }
 
-                case 3:{
+                case 3:{ // Se solicita una línea y se traduce cada palabra
+                    String filename1 = "Lineas.txt";
+                    System.out.println("A continuacion se presenta un listado de las lineas a imprimir, ingrese el numero de la linea que desea traducir");
+                    LeerArchivo.imprimirLineas(filename1);
+                    int linea = in.nextInt();
+                    in.nextLine();
+                    System.out.println("Que idioma se esta usando en la linea: 1. Ingles 2. Espaniol 3. Frances (ingrese el número)");
+                    int tipodic = in.nextInt();
+                    in.nextLine();
+                    System.out.println("A que idioma desea traducir la linea: 1. Ingles 2. Espaniol 3. Frances (ingrese el número)");
+                    int idioma = in.nextInt();
+                    in.nextLine();
+                    dic.TraduccionDeLineas(LeerArchivo.leerLineas(filename1).get(linea-1), tipodic, idioma);
                     break;
                 }
             }

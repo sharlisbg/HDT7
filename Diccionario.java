@@ -87,7 +87,6 @@ public class Diccionario {
     }
 
 
-    
     /** 
      * @param tipo
      * @return BinarySearchTree<String, List<String>>
@@ -104,6 +103,68 @@ public class Diccionario {
          }
  
          return null;
+    }
+
+    /**
+     * Método para traducir lineas del idioma específicado
+     * @param words
+     * @param idioma1
+     * @param idioma2
+     */
+     public void TraduccionDeLineas(List<String> words, int idioma1, int idioma2 ) {
+        for (String word : words) {
+            if (idioma1 == 1){
+                    // Comparamos cada palabra con la llave del árbol binario
+                if (ingles.search(word) != null) {
+                    // Si la palabra coincide con la llave, imprimimos el valor asociado
+                    if (idioma2 == 2){ // Si se quiere una traducción al español
+                        System.out.print(ingles.search(word).get(0) + " ");
+                    }
+                    if (idioma2 == 3){ // Si se quiere una traducción al francés
+                        System.out.print(ingles.search(word).get(1) + " ");
+                    }
+                } else {
+                    // De lo contrario, imprimimos la palabra encerrada en asteriscos
+                    System.out.print("*" + word + "* ");
+                }
+            }
+
+
+            if (idioma1 == 2){
+                // Comparamos cada palabra con la llave del árbol binario
+                if (espanol.search(word) != null) {
+                    // Si la palabra coincide con la llave, imprimimos el valor asociado
+                    if (idioma2 == 1){ // Si se quiere una traducción al ingles
+                        System.out.print(espanol.search(word).get(0) + " ");
+                    }
+                    if (idioma2 == 3){ // Si se quiere una traducción al francés
+                        System.out.print(espanol.search(word).get(1) + " ");
+                    }
+                } else {
+                    // De lo contrario, imprimimos la palabra encerrada en asteriscos
+                    System.out.print("*" + word + "* ");
+                }
+            }
+            
+            
+            
+            if (idioma1 == 3){
+                // Comparamos cada palabra con la llave del árbol binario
+                if (frances.search(word) != null) {
+                    // Si la palabra coincide con la llave, imprimimos el valor asociado
+                    if (idioma2 == 1){ // Si se quiere una traducción al ingles
+                        System.out.print(frances.search(word).get(0) + " ");
+                    }
+                    if (idioma2 == 2){ // Si se quiere una traducción al español
+                        System.out.print(frances.search(word).get(1) + " ");
+                    }
+                } else {
+                    // De lo contrario, imprimimos la palabra encerrada en asteriscos
+                    System.out.print("*" + word + "* ");
+                }
+            }
+        }
+        System.out.println();
     }
 
 }

@@ -11,6 +11,12 @@ import java.util.List;
 
 public class LeerArchivo {
 
+    
+    /** 
+     * @param nombreArchivo
+     * @param indicador
+     * @return BinarySearchTree<String, List<String>>
+     */
     // Método para leer y crear arboles binarios
     public static BinarySearchTree<String, List<String>> leerArchivo(String nombreArchivo, int indicador) {
         BinarySearchTree<String, List<String>> arbol = new BinarySearchTree<String, List<String>>();
@@ -60,4 +66,48 @@ public class LeerArchivo {
 
         return arbol;
     }
+
+    
+    /** 
+     * @param filename
+     * @return List<List<String>>
+     * @throws IOException
+     */
+    // Método para leer y guardar líneas a traducir 
+    public static List<List<String>> leerLineas(String filename) throws IOException {
+        List<List<String>> lines = new ArrayList<>();
+    
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] wordsInLine = line.split(" ");
+            List<String> words = new ArrayList<>();
+            for (String word : wordsInLine) {
+                words.add(word);
+            }
+            lines.add(words);
+        }
+        reader.close();
+    
+        return lines;
+    }
+
+    
+    /** 
+     * @param archivo
+     */
+    // Método para imprimir las líneas de un archivo 
+    public static void imprimirLineas(String archivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+          String linea;
+          int contador = 1;
+          while ((linea = br.readLine()) != null) {
+            System.out.println(contador + ": " + linea);
+            contador++;
+          }
+        } catch (IOException e) {
+          System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+      }
+    
 }
