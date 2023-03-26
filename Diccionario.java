@@ -5,6 +5,7 @@ import java.util.List;
  */
 
 public class Diccionario {
+    // Diccionarios de diferentes idiomas
     private BinarySearchTree<String, List<String>> ingles;
     private BinarySearchTree<String, List<String>> espanol;
     private BinarySearchTree<String, List<String>> frances;
